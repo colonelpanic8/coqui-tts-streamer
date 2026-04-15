@@ -277,6 +277,7 @@ async fn run_pipeline(
     Ok(())
 }
 
+#[allow(clippy::too_many_arguments)]
 async fn flush_ready_segments(
     config: &PipelineConfig,
     state: &mut AppState,

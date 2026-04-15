@@ -189,7 +189,7 @@ fn print_event(event: &AppEvent, json_events: bool) {
                 "event": "completed",
             }),
         };
-        println!("{}", payload);
+        println!("{payload}");
         return;
     }
 
@@ -210,7 +210,7 @@ fn print_event(event: &AppEvent, json_events: bool) {
             segment_id,
             duration.as_secs_f32()
         ),
-        AppEvent::Playback(playback_event) => eprintln!("playback {:?}", playback_event),
+        AppEvent::Playback(playback_event) => eprintln!("playback {playback_event:?}"),
         AppEvent::Error(message) => eprintln!("error: {message}"),
         AppEvent::Completed => eprintln!("completed"),
     }

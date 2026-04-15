@@ -118,9 +118,7 @@ fn paragraph_spans(text: &str) -> Vec<(usize, usize)> {
     while i < len {
         if bytes[i] == b'\n' {
             let mut j = i;
-            while j < len
-                && (bytes[j] == b'\n' || bytes[j].is_ascii_whitespace() && bytes[j] != b'\n')
-            {
+            while j < len && bytes[j].is_ascii_whitespace() {
                 j += 1;
                 if j > i && j < len && bytes[j - 1] == b'\n' && bytes[j] == b'\n' {
                     break;
