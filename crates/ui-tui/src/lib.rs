@@ -47,44 +47,44 @@ fn run_tui_loop(
             state.playback_state,
             PlaybackState::Completed | PlaybackState::Stopped | PlaybackState::Error
         ) {
-            if event::poll(Duration::from_millis(100))? {
-                if let Event::Key(key) = event::read()? {
-                    if key.kind == KeyEventKind::Press && matches!(key.code, KeyCode::Char('q')) {
-                        break;
-                    }
-                }
+            if event::poll(Duration::from_millis(100))?
+                && let Event::Key(key) = event::read()?
+                && key.kind == KeyEventKind::Press
+                && matches!(key.code, KeyCode::Char('q'))
+            {
+                break;
             }
             break;
         }
 
-        if event::poll(Duration::from_millis(100))? {
-            if let Event::Key(key) = event::read()? {
-                if key.kind != KeyEventKind::Press {
-                    continue;
+        if event::poll(Duration::from_millis(100))?
+            && let Event::Key(key) = event::read()?
+        {
+            if key.kind != KeyEventKind::Press {
+                continue;
+            }
+            match key.code {
+                KeyCode::Char('q') => {
+                    let _ = command_tx.send(ReaderCommand::Quit);
+                    break;
                 }
-                match key.code {
-                    KeyCode::Char('q') => {
-                        let _ = command_tx.send(ReaderCommand::Quit);
-                        break;
-                    }
-                    KeyCode::Char(' ') => {
-                        let _ = command_tx.send(ReaderCommand::TogglePause);
-                    }
-                    KeyCode::Char('j') | KeyCode::Down => {
-                        manual_selected = Some(
-                            selected
-                                .saturating_add(1)
-                                .min(state.total_segments().saturating_sub(1)),
-                        );
-                    }
-                    KeyCode::Char('k') | KeyCode::Up => {
-                        manual_selected = Some(selected.saturating_sub(1));
-                    }
-                    KeyCode::Char('f') => {
-                        manual_selected = None;
-                    }
-                    _ => {}
+                KeyCode::Char(' ') => {
+                    let _ = command_tx.send(ReaderCommand::TogglePause);
                 }
+                KeyCode::Char('j') | KeyCode::Down => {
+                    manual_selected = Some(
+                        selected
+                            .saturating_add(1)
+                            .min(state.total_segments().saturating_sub(1)),
+                    );
+                }
+                KeyCode::Char('k') | KeyCode::Up => {
+                    manual_selected = Some(selected.saturating_sub(1));
+                }
+                KeyCode::Char('f') => {
+                    manual_selected = None;
+                }
+                _ => {}
             }
         }
     }

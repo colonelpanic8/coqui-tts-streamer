@@ -2,16 +2,11 @@ use anyhow::{Result, anyhow};
 
 use crate::{Document, Segment};
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum SegmentMode {
+    #[default]
     Paragraph,
     Sentence,
-}
-
-impl Default for SegmentMode {
-    fn default() -> Self {
-        Self::Paragraph
-    }
 }
 
 #[derive(Clone, Debug)]
