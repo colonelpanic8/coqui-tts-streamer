@@ -1,0 +1,10 @@
+[package]
+name = "streamer-audio-output"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+async-trait.workspace = true
+streamer-core = { path = "../core" }
+tokio.workspace = true

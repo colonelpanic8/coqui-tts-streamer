@@ -1,0 +1,15 @@
+So I leave the site alone for a few months, come back, make two posts, both fairly innocuous, and suddenly the entire internet has decided I am the villain of the week.
+
+That is a very efficient turnaround time, if nothing else.
+
+You can believe the public-relations team, or the researchers, or the people translating each statement into a cleaner version for the press, but none of that changes the thing you can actually observe: everyone is speaking in the future tense while the damage happens in the present tense.
+
+"This system will improve," one person says. "This rollout will be made safer," says another. "This is not what the product is meant to do," adds a third, as though intention were somehow visible from the outside.
+
+Meanwhile, users are left doing the oldest form of systems analysis there is. They try something. They watch what happens. They compare notes. They build folk wisdom because formal guarantees are late, vague, or conditional.
+
+That is what makes people sound hysterical when they are often just being empirical. They are not reacting to a white paper. They are reacting to a sequence of interactions that already took place.
+
+And yes, the tone gets sharp. Of course it does. Nothing makes people sarcastic faster than being told that the thing they directly observed must be interpreted through three additional layers of institutional narration before it counts as real.
+
+So no, I do not think the entire world hates me. I think the world got tired of being told to wait for clarity from the same systems that keep generating ambiguity at industrial scale.

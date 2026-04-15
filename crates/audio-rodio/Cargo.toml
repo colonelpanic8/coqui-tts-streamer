@@ -1,0 +1,12 @@
+[package]
+name = "streamer-audio-process"
+version.workspace = true
+edition.workspace = true
+
+[dependencies]
+anyhow.workspace = true
+async-trait.workspace = true
+libc.workspace = true
+streamer-core = { path = "../core" }
+tempfile.workspace = true
+tokio.workspace = true
